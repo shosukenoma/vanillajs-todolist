@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
   </head>
   <body>
     <h1>My To Do List</h1>
-    <form action="">
-      <input type="text">
-      <button id="button-add">Add</button>
+    <form action="submit">
+      <input type="text" id="newTodoText">
+      <button type="button" id="newTodoButton">Add</button>
     </form>
-    <ul id="todo-list">
+    <ul id="todoList">
       <li>
           <p>Buy groceries</p>
           <button>Delete</button>

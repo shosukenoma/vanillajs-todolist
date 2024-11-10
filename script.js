@@ -1,19 +1,17 @@
-const todoList = document.getElementById("todo-list")
-const addButton = document.getElementById("button-add")
+const newTodoText = document.getElementById("newTodoText")
+const newTodoButton = document.getElementById("newTodoButton")
+const todoList = document.getElementById("todoList")
 
-document.addEventListener(e) {
-  // if (e.element == button) {
-  //   addListItem()
-  // }
-}
+newTodoButton.addEventListener("click", (e) => {
+  // defer script.js loading in html.
+  // getElementById is executed before DOM finishes loading.
+  let newTodoItemHTML = `
+  <li>
+    <p>${newTodoText.value}</p>
+    <button type="button" id="deleteTodoButton">Delete</button>
+  </li>
+  `;
 
-const addListItem = () => {
-  // todoList.appendElement(() => {
-  //   `
-  //   <li>
-  //     <p>${todoContent}</p>
-  //     <button>Delete</button>
-  //   </li>
-  //   `
-  // })
-}
+  todoList.insertAdjacentHTML("beforeend", newTodoItemHTML);
+  newTodoText.value = "";
+})
