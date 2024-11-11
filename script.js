@@ -1,17 +1,19 @@
-const newTodoText = document.getElementById("newTodoText")
-const newTodoButton = document.getElementById("newTodoButton")
+const textField = document.getElementById("textField")
+const buttonAdd = document.getElementById("buttonAdd")
 const todoList = document.getElementById("todoList")
 
-newTodoButton.addEventListener("click", (e) => {
-  // defer script.js loading in html.
+buttonAdd.addEventListener("click", (e) => {
+  e.preventDefault();
+  // Make sure to defer script.js in html.
   // getElementById is executed before DOM finishes loading.
-  let newTodoItemHTML = `
+  // -> Uncaught TypeError: Cannot read properties of null (reading 'addEventListener')
+  let newItemHTML = `
   <li>
-    <p>${newTodoText.value}</p>
-    <button type="button" id="deleteTodoButton">Delete</button>
+    <p>${textField.value}</p>
+    <button type="button" id="buttonDelete">Delete</button>
   </li>
   `;
 
-  todoList.insertAdjacentHTML("beforeend", newTodoItemHTML);
-  newTodoText.value = "";
+  todoList.insertAdjacentHTML("beforeend", newItemHTML);
+  textField.value = "";
 })
