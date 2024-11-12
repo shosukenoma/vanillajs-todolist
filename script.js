@@ -23,7 +23,6 @@ textField.addEventListener('keydown', (e) => {
 // USE EVENT DELEGATION. Do not add event listener to each "delete item" button.
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains("btn--delete")) {
-    console.log(e.target.parentNode);
     todoList.removeChild(e.target.parentNode)
   }
 })
