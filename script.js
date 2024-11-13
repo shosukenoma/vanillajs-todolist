@@ -21,10 +21,12 @@ textField.addEventListener('keydown', (e) => {
 
 // === CHECK ===
 document.addEventListener('click', (e) => {
-  const checkBoxClassList = e.target.classList
-  if (checkBoxClassList.contains("checkbox--todo")) {
-    checkBoxClassList.toggle("todo--done")
-    console.log(checkBoxClassList.value);
+  if (e.target.classList.contains("checkbox--todo")) {
+    // find listContent node
+    var listContent = e.target.parentNode.querySelectorAll(".text--todo")[0]
+
+    listContent.classList.toggle("todo--done")
+    console.log(listContent.classList.value);
     // // No toggle version (only using add/remove class)
     // if (!checkBoxClassList.contains("todo--done")) {
     //   checkBoxClassList.add("todo--done")
@@ -61,6 +63,7 @@ const addNewItem = (e) => {
 
   const listContent = document.createElement("span");
   listContent.textContent = `${textField.value}`
+  listContent.setAttribute("class", "text--todo")
 
   const listDeleteButton = document.createElement("button")
   listDeleteButton.setAttribute("type", "button")
