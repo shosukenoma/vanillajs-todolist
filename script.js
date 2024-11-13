@@ -30,12 +30,32 @@ document.addEventListener('click', (e) => {
 // === ADD Helper ===
 const addNewItem = (e) => {
   e.preventDefault();
-  let newItemHTML = `
-  <li>
-    <p>${textField.value}</p>
-    <button type="button" class="btn btn--delete">Delete</button>
-  </li>
-  `;
-  todoList.insertAdjacentHTML("beforeend", newItemHTML);
+
+  // appendChild version
+  const listItem = document.createElement("li")
+
+  const listContent = document.createElement("span");
+  listContent.textContent = `${textField.value}`
+
+  const listDeleteButton = document.createElement("button")
+  listDeleteButton.setAttribute("type", "button")
+  listDeleteButton.setAttribute("class", "btn btn--delete")
+  listDeleteButton.textContent = "Delete"
+
+  listItem.appendChild(listContent)
+  listItem.appendChild(listDeleteButton)
+  todoList.appendChild(listItem)
+
   textField.value = "";
+  console.log(listItem);
+
+  // // insertAdjacentHTML version
+  // const newItemHTML = `
+  // <li>
+  //   <span>${textField.value}</span>
+  //   <button type="button" class="btn btn--delete">Delete</button>
+  // </li>
+  // `;
+  // todoList.insertAdjacentHTML("beforeend", newItemHTML);
+  // textField.value = "";
 }
