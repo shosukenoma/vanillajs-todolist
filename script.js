@@ -31,6 +31,11 @@ document.addEventListener('click', (e) => {
 const addNewItem = (e) => {
   e.preventDefault();
 
+  if (!textField.value.length) {
+    alert("You can't add an empty task!")
+    return;
+  };
+
   // appendChild version
   const listItem = document.createElement("li")
 
