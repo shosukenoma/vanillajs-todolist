@@ -19,6 +19,21 @@ textField.addEventListener('keydown', (e) => {
   }
 })
 
+// === CHECK ===
+document.addEventListener('click', (e) => {
+  const checkBoxClassList = e.target.classList
+  if (checkBoxClassList.contains("checkbox--todo")) {
+    checkBoxClassList.toggle("todo--done")
+    console.log(checkBoxClassList.value);
+    // // No toggle version (only using add/remove class)
+    // if (!checkBoxClassList.contains("todo--done")) {
+    //   checkBoxClassList.add("todo--done")
+    // } else {
+    //   checkBoxClassList.remove("todo--done")
+    // }
+  }
+})
+
 // === DELETE ===
 // USE EVENT DELEGATION. Do not add event listener to each "delete item" button.
 document.addEventListener('click', (e) => {
@@ -41,7 +56,8 @@ const addNewItem = (e) => {
 
   const listCheckbox = document.createElement("input")
   listCheckbox.setAttribute("type", "checkbox")
-  // I might add a "for" attribute to tie to "label" element with id, instead of using span.
+  listCheckbox.setAttribute("class", "checkbox--todo")
+  // I might add a "for" attribute to tie to a "label" element with id, instead of using span.
 
   const listContent = document.createElement("span");
   listContent.textContent = `${textField.value}`
