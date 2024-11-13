@@ -39,6 +39,10 @@ const addNewItem = (e) => {
   // appendChild version
   const listItem = document.createElement("li")
 
+  const listCheckbox = document.createElement("input")
+  listCheckbox.setAttribute("type", "checkbox")
+  // I might add a "for" attribute to tie to "label" element with id, instead of using span.
+
   const listContent = document.createElement("span");
   listContent.textContent = `${textField.value}`
 
@@ -47,6 +51,7 @@ const addNewItem = (e) => {
   listDeleteButton.setAttribute("class", "btn btn--delete")
   listDeleteButton.textContent = "Delete"
 
+  listItem.appendChild(listCheckbox)
   listItem.appendChild(listContent)
   listItem.appendChild(listDeleteButton)
   todoList.appendChild(listItem)
@@ -57,6 +62,7 @@ const addNewItem = (e) => {
   // // insertAdjacentHTML version
   // const newItemHTML = `
   // <li>
+  //   <input type="checkbox">
   //   <span>${textField.value}</span>
   //   <button type="button" class="btn btn--delete">Delete</button>
   // </li>
